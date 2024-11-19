@@ -1,0 +1,89 @@
+<html>
+<head>
+    <title>Football Hello World</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,3));
+            font-family: 'Sofia', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            color: blue;
+            text-shadow: 0 0 10px #ffffff, 0 0 20px #00ffcc, 0 0 30px #ff0000;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-top: 100px;
+            cursor: pointer;
+        }
+
+        #Ball {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    transform: translateX(-50%) translateY(-50%); 
+    width: 200px;
+    height: 200px;
+    background-image: url('images/ball_image.png');     background-size: cover; 
+    background-position: center; 
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    animation: rotateBall 10s infinite linear;
+    cursor: pointer;
+}
+
+        @keyframes rotateBall {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        #message {
+            font-size: 30px;
+            margin-top: 30px;
+            color: #00ffff;
+        }
+
+    </style>
+    <script>
+        var audioPlayed = false;
+
+        
+        function playAudio(url) {
+            if (!audioPlayed) {
+                var audio = new Audio(url);
+                audio.loop = true;
+                audio.play();
+                audioPlayed = true;
+            }
+        }
+
+       
+        function displayBallInfo() {
+            var message = document.getElementById('message');
+            message.innerHTML = "Welcome to the Football!";
+            playAudio('images/football_music.mp3'); 
+        }
+
+                function displayHelloWorld() {
+            var message = document.getElementById('message');
+            message.innerHTML = "Hello, World!";
+            playAudio('images/football_music.mp3');
+        }
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 onclick="displayHelloWorld()">Hello, World!</h1>
+        <div id="ball" onclick="displayBallInfo()"></div>
+        <div id="message"></div>
+    </div>
+    <div class="boots"></div>
+</body>
+</html>
